@@ -19,3 +19,8 @@ Step 3. Function Definition
      3-b. Image Detection
 Step 4. Control Web Cam
 ```
+
+## 3. Hand Tracking Basic
+- Resolved No Response issues
+- Display fps(frame per seconds)
+- Display Circle on Image(Frame) based on image size

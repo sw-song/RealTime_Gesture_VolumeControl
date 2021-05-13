@@ -26,3 +26,7 @@ Step 4. Control Web Cam
 - Resolved No Response issues
 - Display fps(frame per seconds)
 - Display Circle on Image(Frame) based on image size
+
+## 4. Hand Tracking using Module
+- Same Result(Video Display) with `3. Hand Tracking Basic`
+- But Used Module that implemented as classes

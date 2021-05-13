@@ -1,5 +1,5 @@
 ## 1. Basic Hand Pose Estimation
-<img width="80%" src='https://github.com/sw-song/AI_Lab/blob/main/hand_pose.gif'>
+<img width="80%" src='https://github.com/sw-song/AI_Lab/blob/main/01.hand_pose.gif'>
 
 ```
 Step 1. Import Libraries
@@ -21,6 +21,7 @@ Step 4. Control Web Cam
 ```
 
 ## 3. Hand Tracking Basic
+<img width="80%" src='https://github.com/sw-song/AI_Lab/blob/main/03.hand_pose.gif'>
 - Resolved No Response issues
 - Display fps(frame per seconds)
 - Display Circle on Image(Frame) based on image size

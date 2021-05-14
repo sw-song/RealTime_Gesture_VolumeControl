@@ -25,6 +25,7 @@ while True:
     success, img = cap.read()
     img = detector.findHands(img)
     lmList = detector.findPosition(img, draw=False)
+    cv2.rectangle(img, (50,100), (85,300), (0,255,0), 3)
     if len(lmList) > 21:
         x1, y1 = lmList[4][1], lmList[4][2]
         x2, y2 = lmList[8][1], lmList[8][2]
@@ -55,6 +56,8 @@ while True:
         out= subprocess.check_output(["osascript -e 'output volume of (get volume settings)'"], shell=True)
         #code, out, err = osascript.run("output volume of (get volume settings)")
         print('out : ', out)
+        print(100+length)
+        cv2.rectangle(img, (50, (300-int(length-30))), (85,300), (255,0,0), cv2.FILLED)
 
     elif len(lmList) != 0:
         print(lmList[4], lmList[8])
@@ -81,11 +84,15 @@ while True:
         out= subprocess.check_output(["osascript -e 'output volume of (get volume settings)'"], shell=True)
         # code, out, err = osascript.run("output volume of (get volume settings)")
         print('out : ', out)
+        print(100+length)
+        cv2.rectangle(img, (50, (300-int(length-30))), (85,300), (255,0,0), cv2.FILLED)
+        cv2.putText(img, 'Volume: {} %'.format(int(length-30)/2), (40, 400),
+                cv2.FONT_HERSHEY_COMPLEX,
+                1, (255, 0, 0), 3)
 
     else:
         print('Hands up!')
         
-
     cTime = time.time()
     fps = 1/(cTime - pTime)
     pTime = cTime

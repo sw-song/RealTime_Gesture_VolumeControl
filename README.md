@@ -33,4 +33,5 @@ Step 4. Control Web Cam
 
 ## 5. Volume Control with Hand Tracking
 <img width="80%" src='https://github.com/sw-song/AI_Lab/blob/main/05.hand_pose.gif'>
-- Volume Control using osascript(on Mac)
+
+- Volume Control using `osascript`(on Mac)

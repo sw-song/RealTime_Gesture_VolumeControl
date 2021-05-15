@@ -1,5 +1,5 @@
 ## 1. Basic Hand Pose Estimation
-<img width="80%" src='https://github.com/sw-song/AI_Lab/blob/main/01.hand_pose.gif'>
+<img width="40%" src='https://github.com/sw-song/AI_Lab/blob/main/01.hand_pose.gif'>
 
 ```
 Step 1. Import Libraries
@@ -21,7 +21,7 @@ Step 4. Control Web Cam
 ```
 
 ## 3. Hand Tracking Basic
-<img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/03.hand_pose.gif'>
+<img width="40%" src='https://github.com/sw-song/AI_Lab/blob/main/03.hand_pose.gif'>
 
 - Resolved No Response issues
 - Display fps(frame per seconds)
@@ -32,7 +32,7 @@ Step 4. Control Web Cam
 - But Used Module that implemented as classes
 
 ## 5. Volume Control with Hand Tracking (FPS < 3)
-<img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/05.hand_pose.gif'>
+<img width="40%" src='https://github.com/sw-song/AI_Lab/blob/main/05.hand_pose.gif'>
 
 - Volume Control using `osascript`(on Mac)
 

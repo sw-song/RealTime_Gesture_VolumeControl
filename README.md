@@ -21,7 +21,7 @@ Step 4. Control Web Cam
 ```
 
 ## 3. Hand Tracking Basic
-<img width="80%" src='https://github.com/sw-song/AI_Lab/blob/main/03.hand_pose.gif'>
+<img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/03.hand_pose.gif'>
 
 - Resolved No Response issues
 - Display fps(frame per seconds)
@@ -32,14 +32,14 @@ Step 4. Control Web Cam
 - But Used Module that implemented as classes
 
 ## 5. Volume Control with Hand Tracking (FPS < 3)
-<img width="80%" src='https://github.com/sw-song/AI_Lab/blob/main/05.hand_pose.gif'>
+<img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/05.hand_pose.gif'>
 
 - Volume Control using `osascript`(on Mac)
 
 
 ## 5. Volume Control with Hand Tracking (FPS > 10)
-<img width="80%" src='https://github.com/sw-song/AI_Lab/blob/main/05.hand_pose_fps15.gif'>
-<img width="80%" src='https://github.com/sw-song/AI_Lab/blob/main/05.Compare_Loop_Speed.gif'>
+<img width="40%" src='https://github.com/sw-song/AI_Lab/blob/main/05.hand_pose_fps15.gif'>
+<img width="40%" src='https://github.com/sw-song/AI_Lab/blob/main/05.Compare_Loop_Speed.gif'>
 
 - Volume Control using `NSAppleScript `(on Mac)
 

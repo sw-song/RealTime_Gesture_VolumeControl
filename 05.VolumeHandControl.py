@@ -62,7 +62,7 @@ while True:
         print(100+length)
         cv2.rectangle(img, (50, (300-int(length-30))), (85,300), (255,0,0), cv2.FILLED)
 
-    if len(lmList) != 0:
+    elif len(lmList) != 0:
         print(lmList[4], lmList[8])
         print('---')
         x1, y1 = lmList[4][1], lmList[4][2]

@@ -27,18 +27,29 @@ class handDetector():
         return img
     
     def findPosition(self, img, draw=True):
+        xList = []
+        yList = []
+        bbox = []
         self.lmList = []
         if self.results.multi_hand_landmarks:
             for myHand in self.results.multi_hand_landmarks:
                 for id, lm in enumerate(myHand.landmark):
                     h, w, c = img.shape
                     cx, cy = int(lm.x*w), int(lm.y*h)
+                    
+                    xList.append(cx)
+                    yList.append(cy)
                     # print(id, cx, cy)
                     self.lmList.append([id, cx, cy])
                     if draw:
-                        if id == 0:
-                            cv2.circle(img, (cx,cy), 25, (255,0,255), cv2.FILLED)
-        return self.lmList
+                        cv2.circle(img, (cx,cy), 5, (255,0,255), cv2.FILLED)
+            xmin, xmax = min(xList), max(xList)
+            ymin, ymax = min(yList), max(yList)
+            bbox = xmin, ymin, xmax, ymax
+        
+            if draw:
+                cv2.rectangle(img, (bbox[0]-20, bbox[1]-20), (bbox[2]+20, bbox[3]+20), (0,0,255), 2)
+        return self.lmList, bbox
 
 def main():
     cap = cv2.VideoCapture(0)
@@ -61,7 +72,7 @@ def main():
                     (10,70), 
                     cv2.FONT_HERSHEY_PLAIN, 
                     3, 
-                    (255,0,255), 
+                    (0,0,255), 
                     3)
         if success == True:
             cv2.imshow('Image', img)

@@ -20,16 +20,16 @@ while True:
     # Find Hand
     success, img = cap.read()
     img = detector.findHands(img, draw=False)
-    lmList, bbox = detector.findPosition(img, draw=True)
+    lmList, bbox = detector.findPosition(img, Cdraw=True)
     #cv2.circle(img, lmList[9], 20, (255,255,255))
     
     # Display Volume
-    cv2.rectangle(img, (50,100), (85,300), (0,255,0), 3)
+    cv2.rectangle(img, (50,100), (75,300), (0,255,0), 3)
     script = NSA.alloc().initWithSource_('output volume of (get volume settings)')
     result, error_info = script.executeAndReturnError_(None)
     volume = int(result.stringValue())
-    cv2.rectangle(img, (52, (302-(2*volume))), (83,298), (200,255,200), cv2.FILLED)
-    cv2.putText(img, 'Volume: {} %'.format(volume), (40, 400), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255, 0), 3)
+    cv2.rectangle(img, (52, (302-(2*volume))), (73,298), (200,255,200), cv2.FILLED)
+    cv2.putText(img, 'Volume: {} %'.format(volume), (40, 330), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 255, 0), 2)
     print(len(lmList))
     # Hand in screen,
     if len(lmList) != 0:
@@ -64,6 +64,6 @@ while True:
     cTime = time.time()
     fps = 1/(cTime - pTime)
     pTime = cTime
-    cv2.putText(img, 'FPS: {}'.format(int(fps)), (40, 50), cv2.FONT_HERSHEY_COMPLEX, 1, (0,255,0), 3)
+    cv2.putText(img, 'FPS: {}'.format(int(fps)), (40, 50), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,255,0), 2)
     cv2.imshow("Img", img)
     cv2.waitKey(1)

@@ -2,6 +2,8 @@ import cv2
 import mediapipe as mp
 import time
 import math 
+from Foundation import NSAppleScript as NSA
+
 class handDetector():
     def __init__(self, mode=False, maxHands=2, detectionCon=0.8, trackCon=0.7):
         self.mode = mode
@@ -13,6 +15,8 @@ class handDetector():
         self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.detectionCon, self.trackCon)
         self.mpDraw = mp.solutions.drawing_utils
         self.tipIds = [4, 8, 12, 16, 20]
+        self.NSA = NSA
+        
 
     def findHands(self, img, draw=True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -25,8 +29,24 @@ class handDetector():
                     self.mpDraw.draw_landmarks(img, handLms, self.mpHands.HAND_CONNECTIONS)   
                 
         return img
-    
-    def findPosition(self, img, draw=True):
+
+
+    def displayVolume(self, img, color='r'):
+        self.script = self.NSA.alloc().initWithSource_('output volume of (get volume settings)')
+        result, error_info = self.script.executeAndReturnError_(None)
+        volume = int(result.stringValue())
+        if color == 'r':
+            cv2.rectangle(img, (50,100), (75,300), (0,0,255), 3)
+            cv2.rectangle(img, (52, (302-(2*volume))), (73,298), (200,200,255), cv2.FILLED)
+            cv2.putText(img, 'Volume: {} %'.format(volume), (40, 330), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,0,255), 2)
+        elif color == 'g':
+            cv2.rectangle(img, (50,100), (75,300), (0,255,0), 3)
+            cv2.rectangle(img, (52, (302-(2*volume))), (73,298), (200,255,200), cv2.FILLED)
+            cv2.putText(img, 'Volume: {} %'.format(volume), (40, 330), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 255, 0), 2)
+        else:
+            print('display Volume - color None')
+            
+    def findPosition(self, img, Bdraw=False, Cdraw=False):
         xList = []
         yList = []
         bbox = []
@@ -42,15 +62,16 @@ class handDetector():
                     # print(id, cx, cy)
                     self.lmList.append([id, cx, cy])
                     if len(self.lmList) == 10:
-                        if draw:
-                            cv2.circle(img, (cx,cy), 105, (255,255,255))
+                        if Cdraw:
+                            cv2.circle(img, (cx,cy), 100, (165,255,165))
                             #cv2.circle(img, (cx,cy), 205, (0,255,0))
             xmin, xmax = min(xList), max(xList)
             ymin, ymax = min(yList), max(yList)
             bbox = xmin, ymin, xmax, ymax
-        
-            if draw and len(self.lmList)>=9:
-                #cv2.rectangle(img, (bbox[0]-20, bbox[1]-20), (bbox[2]+20, bbox[3]+20), (0,0,255), 2)
+
+            if Bdraw:
+                cv2.rectangle(img, (bbox[0]-20, bbox[1]-20), (bbox[2]+20, bbox[3]+20), (0,0,255), 2)
+            if Cdraw and len(self.lmList)>=9:
                 cv2.circle(img, (self.lmList[9][1], self.lmList[9][2]), (xmax-xmin), (0,255,0))
                 cv2.putText(img, '{}'.format(xmax-xmin), (self.lmList[9][1], self.lmList[9][2]+10), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 255, 0), 2)
         return self.lmList, bbox

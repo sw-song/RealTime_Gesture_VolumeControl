@@ -48,6 +48,6 @@ Step 4. Control Web Cam
 - New Design (Color, Shape, Circle Size)
 
 ## 7. Volume Control with Hand Tracking - version 2
-<img width="40%" src='https://github.com/sw-song/AI_Lab/blob/main/07.hand_pose.gif'> 
+<img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/07.hand_pose.gif'> 
 
 - Apply screen(Display Design) change when clenching and opening a fist

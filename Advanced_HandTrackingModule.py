@@ -41,15 +41,18 @@ class handDetector():
                     yList.append(cy)
                     # print(id, cx, cy)
                     self.lmList.append([id, cx, cy])
-                    if lmList[9]:
+                    if len(self.lmList) == 10:
                         if draw:
-                            cv2.circle(img, (cx,cy), 105, (255,0,255))
+                            cv2.circle(img, (cx,cy), 105, (255,255,255))
+                            #cv2.circle(img, (cx,cy), 205, (0,255,0))
             xmin, xmax = min(xList), max(xList)
             ymin, ymax = min(yList), max(yList)
             bbox = xmin, ymin, xmax, ymax
         
-            if draw:
-                cv2.rectangle(img, (bbox[0]-20, bbox[1]-20), (bbox[2]+20, bbox[3]+20), (0,0,255), 2)
+            if draw and len(self.lmList)>=9:
+                #cv2.rectangle(img, (bbox[0]-20, bbox[1]-20), (bbox[2]+20, bbox[3]+20), (0,0,255), 2)
+                cv2.circle(img, (self.lmList[9][1], self.lmList[9][2]), (xmax-xmin), (0,255,0))
+                cv2.putText(img, '{}'.format(xmax-xmin), (self.lmList[9][1], self.lmList[9][2]+10), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 255, 0), 2)
         return self.lmList, bbox
 
     def fingersUp(self):
@@ -73,13 +76,20 @@ class handDetector():
         x2, y2 = self.lmList[p2][1], self.lmList[p2][2]
         cx, cy = (x1 + x2) // 2, (y1 + y2) // 2
         
-        if draw:
-            cv2.circle(img, (x1,y1), 15, (255,0,255), cv2.FILLED)
-            cv2.circle(img, (x2,y2), 15, (255,0,255), cv2.FILLED)
-            cv2.line(img, (x1, y1), (x2, y2), (255, 0, 255), 3)
-            cv2.circle(img, (cx,cy), 10, (255,0,255), cv2.FILLED)
-        
         length = math.hypot(x2-x1, y2-y1)
+        if draw:
+            if length <= 30:
+                cv2.circle(img, (cx,cy), 25, (200,255,200), 3)
+                cv2.putText(img, 'Mute', (cx,cy-10), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 255, 0), 2)
+            elif length >= 230:
+                cv2.circle(img, (cx,cy), 25, (200,255,200), 3)
+                cv2.putText(img, 'MAX Volume', (cx,cy-10), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0, 255, 0), 2)
+            else:
+                cv2.circle(img, (x1,y1), 15, (0,255,0), 2)
+                cv2.circle(img, (x2,y2), 15, (0,255,0), 2)
+                cv2.line(img, (x1, y1), (x2, y2), (0,255,0), 1)
+                cv2.putText(img, '{:.2f}'.format(length), (cx,cy), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, (0,255,0),2)
+                #cv2.circle(img, (cx,cy), 10, (0,255,0), 2)
         return length, img, [x1, y1, x2, y2, cx, cy]
 
 def main():

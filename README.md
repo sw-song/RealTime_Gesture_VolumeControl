@@ -43,3 +43,11 @@ Step 4. Control Web Cam
 
 - Volume Control using `NSAppleScript `(on Mac)
 
+## 6. Volume Control with Hand Tracking
+
+- New Design (Color, Shape, Circle Size)
+
+## 7. Volume Control with Hand Tracking - version 2
+<img width="40%" src='https://github.com/sw-song/AI_Lab/blob/main/05.Compare_Loop_Speed.gif'> 
+
+- Apply screen(Display Design) change when clenching and opening a fist

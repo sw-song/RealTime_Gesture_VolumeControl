@@ -51,3 +51,8 @@ Step 4. Control Web Cam
 <img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/07.hand_pose.gif'> 
 
 - Apply screen(Display Design) change when clenching and opening a fist
+
+## 7. Volume Control with Hand Tracking - version 2, blue color
+<img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/07.hand_pose_blue.gif'> 
+
+- apply blue color

@@ -6,9 +6,10 @@ python main.py
 ```
 2. When you place your `palm` on the cam, the red box recognizes your hand.
 
-3. And Now, When you clench your fist at this time, a sky blue ring is formed on the index finger and thumb. 
+3. And Now, clench your fist. Then two blue rings are formed on the index finger and thumb. 
 
-4. You can adjust the volume by spreading your index finger and thumb while holding your fist with the other three fingers.
+4. You can adjust the volume by spreading your index finger and thumb while holding your fist with the other three fingers. (
+In fact, from the beginning, the controller works by folding the remaining three fingers except for the thumb and index finger.)
 <img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/main_notflip.gif'> 
 
 5. As for the cam, if the palm faces upward rather than the front (ie, the cam faces downward), the action is reversed as shown below.
@@ -69,11 +70,11 @@ Step 4. Control Web Cam
 - New Design (Color, Shape, Circle Size)
 
 ## 7. Volume Control with Hand Tracking - version 2
-<img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/07.hand_pose.gif'> 
+<img width="40%" src='https://github.com/sw-song/AI_Lab/blob/main/07.hand_pose.gif'> 
 
 - Apply screen(Display Design) change when clenching and opening a fist
 
 ## 7. Volume Control with Hand Tracking - version 2, blue color
-<img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/07.hand_pose_blue.gif'> 
+<img width="40%" src='https://github.com/sw-song/AI_Lab/blob/main/07.hand_pose_blue.gif'> 
 
 - apply blue color

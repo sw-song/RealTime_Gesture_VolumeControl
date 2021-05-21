@@ -1,4 +1,4 @@
-# How it works?
+# How it works? (only Mac)
 
 1. run `main.py` in terminal
 ```

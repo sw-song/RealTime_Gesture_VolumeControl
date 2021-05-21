@@ -4,12 +4,14 @@
 ```
 python main.py
 ```
-2. When you place your palm on the cam, the red box recognizes your hand.
+2. When you place your `palm` on the cam, the red box recognizes your hand.
 
 3. And Now, When you clench your fist at this time, a sky blue ring is formed on the index finger and thumb. 
 
 4. You can adjust the volume by spreading your index finger and thumb while holding your fist with the other three fingers.
+<img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/main_notflip.gif'> 
 
+5. As for the cam, if the palm faces upward rather than the front (ie, the cam faces downward), the action is reversed as shown below.
 <img width="60%" src='https://github.com/sw-song/AI_Lab/blob/main/07.hand_pose_blue.gif'> 
 
 ---
